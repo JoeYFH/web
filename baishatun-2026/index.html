@@ -444,6 +444,36 @@
 
 </main>
 
+<!-- 回到頂部按鈕 -->
+<button id="totop" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="回到頂部">▲</button>
+
+<style>
+  #totop {
+    position: fixed;
+    bottom: 28px;
+    right: 20px;
+    width: 52px;
+    height: 52px;
+    background: #8b0000;
+    color: #f4c430;
+    border: none;
+    border-radius: 50%;
+    font-size: 1.4rem;
+    cursor: pointer;
+    box-shadow: 0 3px 10px rgba(0,0,0,.35);
+    display: none;
+    z-index: 999;
+  }
+  #totop:hover { background: #a00; }
+</style>
+
+<script>
+  var btn = document.getElementById('totop');
+  window.addEventListener('scroll', function() {
+    btn.style.display = window.scrollY > 300 ? 'block' : 'none';
+  });
+</script>
+
 <footer>
   丙午年 白沙屯媽祖進香 · 行程供參，或有變更請見諒 · 媽祖保佑平安
 </footer>
