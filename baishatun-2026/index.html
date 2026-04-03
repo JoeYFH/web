@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>丙午年 白沙屯媽祖進香行程</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: "Noto Sans TC", "Microsoft JhengHei", "微軟正黑體", sans-serif;
+      background: #fff8f0;
+      color: #1a1a1a;
+      font-size: 18px;
+      line-height: 1.8;
+    }
+
+    /* ── 頂部標題 ── */
+    header {
+      background: #8b0000;
+      color: #fff;
+      text-align: center;
+      padding: 24px 16px;
+      border-bottom: 6px solid #f4c430;
+    }
+    header h1 {
+      font-size: 2rem;
+      color: #f4c430;
+      letter-spacing: 4px;
+      margin-bottom: 6px;
+    }
+    header p {
+      font-size: 1.1rem;
+      color: #ffe8b0;
+    }
+
+    /* ── 公告 ── */
+    .notice {
+      background: #fffbe6;
+      border-left: 6px solid #f4c430;
+      margin: 20px 16px;
+      padding: 14px 18px;
+      border-radius: 0 8px 8px 0;
+      font-size: 1rem;
+      color: #5a3e00;
+    }
+
+    /* ── 快速跳轉 ── */
+    .jump-nav {
+      background: #fff;
+      margin: 0 16px 20px;
+      padding: 14px 16px;
+      border: 2px solid #ddd;
+      border-radius: 10px;
+    }
+    .jump-nav h2 {
+      font-size: 1rem;
+      color: #555;
+      margin-bottom: 10px;
+    }
+    .jump-nav .btns {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .jump-nav a {
+      background: #8b0000;
+      color: #fff;
+      text-decoration: none;
+      padding: 8px 14px;
+      border-radius: 6px;
+      font-size: 1rem;
+      font-weight: bold;
+    }
+    .jump-nav a:hover { background: #a00; }
+
+    /* ── 主體 ── */
+    main {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 0 16px 60px;
+    }
+
+    /* ── 天數卡片 ── */
+    .day-card {
+      background: #fff;
+      border: 2px solid #ddd;
+      border-top: 6px solid #8b0000;
+      border-radius: 10px;
+      margin-bottom: 24px;
+      overflow: hidden;
+      box-shadow: 0 2px 8px rgba(0,0,0,.08);
+    }
+    .day-header {
+      background: #8b0000;
+      color: #fff;
+      padding: 12px 18px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .day-badge {
+      background: #f4c430;
+      color: #5a0000;
+      font-weight: 900;
+      font-size: 0.9rem;
+      padding: 4px 12px;
+      border-radius: 20px;
+      white-space: nowrap;
+    }
+    .day-title {
+      font-size: 1.15rem;
+      font-weight: bold;
+    }
+
+    /* ── 事件列表 ── */
+    .event-list { padding: 10px 18px; list-style: none; }
+    .event-list li {
+      display: flex;
+      gap: 16px;
+      padding: 12px 0;
+      border-bottom: 1px solid #eee;
+      align-items: flex-start;
+    }
+    .event-list li:last-child { border-bottom: none; }
+    .event-time {
+      min-width: 64px;
+      font-size: 1.05rem;
+      font-weight: bold;
+      color: #8b0000;
+      padding-top: 2px;
+      white-space: nowrap;
+    }
+    .event-desc {
+      flex: 1;
+      font-size: 1.05rem;
+      color: #222;
+    }
+
+    /* ── 標籤 ── */
+    .tag {
+      display: inline-block;
+      font-size: 0.85rem;
+      font-weight: bold;
+      padding: 2px 10px;
+      border-radius: 5px;
+      margin-left: 6px;
+      vertical-align: middle;
+    }
+    .tag-bento  { background: #e8f5e9; color: #2e7d32; border: 1px solid #a5d6a7; }
+    .tag-hotel  { background: #e3f2fd; color: #1565c0; border: 1px solid #90caf9; }
+    .tag-key    { background: #fff3e0; color: #e65100; border: 1px solid #ffcc80; }
+
+    /* ── 交通安全 ── */
+    .safety {
+      background: #fff;
+      border: 2px solid #1976d2;
+      border-radius: 10px;
+      margin-bottom: 24px;
+      overflow: hidden;
+      box-shadow: 0 2px 8px rgba(0,0,0,.08);
+    }
+    .safety-header {
+      background: #1565c0;
+      color: #fff;
+      padding: 12px 18px;
+      font-size: 1.15rem;
+      font-weight: bold;
+      letter-spacing: 2px;
+    }
+    .safety-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1px;
+      background: #e0e0e0;
+    }
+    @media (max-width: 500px) { .safety-grid { grid-template-columns: 1fr; } }
+    .safety-item {
+      background: #f5f9ff;
+      padding: 16px 18px;
+    }
+    .safety-item .num {
+      font-size: 1.1rem;
+      font-weight: 900;
+      color: #c62828;
+      margin-bottom: 4px;
+    }
+    .safety-item p {
+      font-size: 0.95rem;
+      color: #444;
+    }
+
+    /* ── 頁尾 ── */
+    footer {
+      text-align: center;
+      padding: 20px;
+      color: #888;
+      font-size: 0.9rem;
+      border-top: 2px solid #ddd;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>白沙屯媽祖進香</h1>
+  <p>丙午年 · 拱天宮 · 行程總覽</p>
+</header>
+
+<div class="notice">
+  各位師兄姐大家好，以下行程供參，或有變更請見諒，平安跟著媽祖婆的腳步走。
+</div>
+
+<!-- 快速跳到特定日 -->
+<div class="jump-nav">
+  <h2>快速跳到：</h2>
+  <div class="btns">
+    <a href="#d412">4/12</a>
+    <a href="#d413">4/13</a>
+    <a href="#d414">4/14</a>
+    <a href="#d415">4/15</a>
+    <a href="#d416">4/16</a>
+    <a href="#d417">4/17</a>
+    <a href="#d418">4/18</a>
+    <a href="#d419">4/19</a>
+    <a href="#d420">4/20</a>
+    <a href="#safety">安全提醒</a>
+  </div>
+</div>
+
+<main>
+
+  <!-- 4/12 -->
+  <div class="day-card" id="d412">
+    <div class="day-header">
+      <span class="day-badge">第 1 天</span>
+      <span class="day-title">4 月 12 日（六）出發日</span>
+    </div>
+    <ul class="event-list">
+      <li>
+        <span class="event-time">13:00</span>
+        <span class="event-desc"><strong>台北車站西三門</strong>集合，準時開車 <span class="tag tag-key">集合</span></span>
+      </li>
+      <li>
+        <span class="event-time">15:00</span>
+        <span class="event-desc">抵達 苗栗高鐵站</span>
+      </li>
+      <li>
+        <span class="event-time">15:30</span>
+        <span class="event-desc">抵達 拱天宮</span>
+      </li>
+      <li>
+        <span class="event-time">16:30</span>
+        <span class="event-desc">白沙屯牌樓旁台一線 發放便當 <span class="tag tag-bento">3500 個便當</span></span>
+      </li>
+    </ul>
+  </div>
+
+  <!-- 4/13 -->
+  <div class="day-card" id="d413">
+    <div class="day-header">
+      <span class="day-badge">第 2 天</span>
+      <span class="day-title">4 月 13 日（日）媽祖起駕</span>
+    </div>
+    <ul class="event-list">
+      <li>
+        <span class="event-time">00:10</span>
+        <span class="event-desc">媽祖婆 起駕出發進香 <span class="tag tag-key">起駕</span></span>
+      </li>
+      <li>
+        <span class="event-time">10:00</span>
+        <span class="event-desc">預估行經 苑里、清水 一帶發放便當 <span class="tag tag-bento">2800 個便當</span></span>
+      </li>
+      <li>
+        <span class="event-time">晚上</span>
+        <span class="event-desc">住宿 大雅威士仃飯店 <span class="tag tag-hotel">住宿</span></span>
+      </li>
+    </ul>
+  </div>
+
+  <!-- 4/14 -->
+  <div class="day-card" id="d414">
+    <div class="day-header">
+      <span class="day-badge">第 3 天</span>
+      <span class="day-title">4 月 14 日（一）台中 · 彰化</span>
+    </div>
+    <ul class="event-list">
+      <li>
+        <span class="event-time">10:00</span>
+        <span class="event-desc">預估行經 台中、彰化 附近發放便當 <span class="tag tag-bento">2800 個便當</span></span>
+      </li>
+      <li>
+        <span class="event-time">晚上</span>
+        <span class="event-desc">住宿 彰化雅迪商旅 <span class="tag tag-hotel">住宿</span></span>
+      </li>
+    </ul>
+  </div>
+
+  <!-- 4/15 -->
+  <div class="day-card" id="d415">
+    <div class="day-header">
+      <span class="day-badge">第 4 天</span>
+      <span class="day-title">4 月 15 日（二）西螺 · 土庫</span>
+    </div>
+    <ul class="event-list">
+      <li>
+        <span class="event-time">10:00</span>
+        <span class="event-desc">預估行經 西螺、土庫 附近發放便當 <span class="tag tag-bento">2800 個便當</span></span>
+      </li>
+      <li>
+        <span class="event-time">晚上</span>
+        <span class="event-desc">住宿 嘉義觀止飯店 <span class="tag tag-hotel">住宿</span></span>
+      </li>
+    </ul>
+  </div>
+
+  <!-- 4/16 -->
+  <div class="day-card" id="d416">
+    <div class="day-header">
+      <span class="day-badge">第 5 天</span>
+      <span class="day-title">4 月 16 日（三）抵達北港</span>
+    </div>
+    <ul class="event-list">
+      <li>
+        <span class="event-time">上午</span>
+        <span class="event-desc">抵達北港，媽祖婆進入 朝天宮 <span class="tag tag-key">駐駕</span></span>
+      </li>
+      <li>
+        <span class="event-time">21:00</span>
+        <span class="event-desc">回嘉義飯店休息後，出發前往北港</span>
+      </li>
+    </ul>
+  </div>
+
+  <!-- 4/17 -->
+  <div class="day-card" id="d417">
+    <div class="day-header">
+      <span class="day-badge">第 6 天</span>
+      <span class="day-title">4 月 17 日（四）媽祖回鑾</span>
+    </div>
+    <ul class="event-list">
+      <li>
+        <span class="event-time">00:10</span>
+        <span class="event-desc">媽祖婆 出發回鑾 <span class="tag tag-key">回鑾</span></span>
+      </li>
+      <li>
+        <span class="event-time">10:00</span>
+        <span class="event-desc">預計行經 土庫、元長 發放便當 <span class="tag tag-bento">2800 個便當</span></span>
+      </li>
+      <li>
+        <span class="event-time">晚上</span>
+        <span class="event-desc">住宿 彰化員林商旅 <span class="tag tag-hotel">住宿</span></span>
+      </li>
+    </ul>
+  </div>
+
+  <!-- 4/18 -->
+  <div class="day-card" id="d418">
+    <div class="day-header">
+      <span class="day-badge">第 7 天</span>
+      <span class="day-title">4 月 18 日（五）彰化</span>
+    </div>
+    <ul class="event-list">
+      <li>
+        <span class="event-time">10:00</span>
+        <span class="event-desc">彰化周邊發放便當 <span class="tag tag-bento">2800 個便當</span></span>
+      </li>
+      <li>
+        <span class="event-time">晚上</span>
+        <span class="event-desc">住宿 大雅威士仃 <span class="tag tag-hotel">住宿</span></span>
+      </li>
+    </ul>
+  </div>
+
+  <!-- 4/19 -->
+  <div class="day-card" id="d419">
+    <div class="day-header">
+      <span class="day-badge">第 8 天</span>
+      <span class="day-title">4 月 19 日（六）抵達通霄灣</span>
+    </div>
+    <ul class="event-list">
+      <li>
+        <span class="event-time">上午</span>
+        <span class="event-desc">抵達 通霄灣</span>
+      </li>
+      <li>
+        <span class="event-time">下午</span>
+        <span class="event-desc">
+          <strong>不參加 4/20 回宮</strong>的師兄姐：<br>
+          搭 <strong>8 號車</strong> 返回苗栗高鐵站 / 台北車站
+        </span>
+      </li>
+      <li>
+        <span class="event-time">晚上</span>
+        <span class="event-desc">
+          <strong>參加 4/20 回宮</strong>的師兄姐：<br>
+          住宿 白沙屯民宿 <span class="tag tag-hotel">住宿</span>
+        </span>
+      </li>
+    </ul>
+  </div>
+
+  <!-- 4/20 -->
+  <div class="day-card" id="d420">
+    <div class="day-header">
+      <span class="day-badge">第 9 天</span>
+      <span class="day-title">4 月 20 日（日）媽祖回宮安座</span>
+    </div>
+    <ul class="event-list">
+      <li>
+        <span class="event-time">全天</span>
+        <span class="event-desc">跟隨媽祖婆回宮行程</span>
+      </li>
+      <li>
+        <span class="event-time">16:10</span>
+        <span class="event-desc">媽祖回宮安座，各自返家 <span class="tag tag-key">安座</span><br>
+        <strong>明年再一起進香！</strong></span>
+      </li>
+    </ul>
+  </div>
+
+  <!-- 交通安全提醒 -->
+  <div class="safety" id="safety">
+    <div class="safety-header">🚦 白沙屯媽祖進香 · 交通安全「4 不」提醒</div>
+    <div class="safety-grid">
+      <div class="safety-item">
+        <div class="num">❶ 不併排停車</div>
+        <p>注意交通順暢，勿違規停車。</p>
+      </div>
+      <div class="safety-item">
+        <div class="num">❷ 不任意穿越道路</div>
+        <p>遵守交通號誌，行人請走斑馬線。</p>
+      </div>
+      <div class="safety-item">
+        <div class="num">❸ 不坐或睡在路邊</div>
+        <p>遵守交通安全，請勿露宿路邊。</p>
+      </div>
+      <div class="safety-item">
+        <div class="num">❹ 不乘坐貨車後車斗</div>
+        <p>請依規定乘坐合適的交通工具。</p>
+      </div>
+    </div>
+  </div>
+
+</main>
+
+<footer>
+  丙午年 白沙屯媽祖進香 · 行程供參，或有變更請見諒 · 媽祖保佑平安
+</footer>
+
+</body>
+</html>
